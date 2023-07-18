@@ -15,12 +15,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Flashcard> _flashcards = [
+  List<Flashcard> _flashcards = [
     Flashcard(question: 'What language does flutter use?', answer: 'Dart'),
     Flashcard(question: 'What langauge does React use?', answer: 'JavaScript'),
     Flashcard(question: 'What langauge does Angular use?', answer: 'JavaScript'),
     Flashcard(question: 'What langauge does Electron use?', answer: 'JavaScript'),
-    Flashcard(question: 'What langauge does React Native use?', answer: 'JavaScript'),
+    Flashcard(question: 'What langauge does React Native use?', answer: 'JavaScript')
   ];
   int _currIndex = 0;
   @override
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Color(kLightBlue),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, SettingsScreen.id);
+                // Navigator.pushNamed(context, SettingsScreen.id);
               },
             ),
           ],
@@ -59,17 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 250,
                 height: 250,
                 child: FlipCard(
-                  front: Card(
-                    elevation: 4,
-                    child: Center(
-                      child: Text('Font'),
-                    ),
-                  ),
-                  back: Card(
-                    elevation: 4,
-                    child: Center(
-                      child: Text('back'),
-                    ),
+                  front: FlashcardView(text: _flashcards[_currIndex].question),
+                  back: FlashcardView(
+                    text: _flashcards[_currIndex].answer,
                   ),
                 ),
               ),
@@ -77,12 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   OutlinedButton.icon(
-                    onPressed: previousCard,
+                    onPressed: () {},
                     icon: const Icon(Icons.chevron_left),
                     label: const Text('Prev'),
                   ),
                   OutlinedButton.icon(
-                    onPressed: nextCard,
+                    onPressed: () {},
                     icon: const Icon(Icons.chevron_right),
                     label: const Text('Prev'),
                   ),
