@@ -58,10 +58,13 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 width: 250,
                 height: 250,
-                child: FlipCard(
-                  front: FlashcardView(text: _flashcards[_currIndex].question),
-                  back: FlashcardView(
-                    text: _flashcards[_currIndex].answer,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FlipCard(
+                    front: FlashcardView(text: _flashcards[_currIndex].question),
+                    back: FlashcardView(
+                      text: _flashcards[_currIndex].answer,
+                    ),
                   ),
                 ),
               ),
@@ -69,14 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: previousCard,
                     icon: const Icon(Icons.chevron_left),
                     label: const Text('Prev'),
                   ),
                   OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: nextCard,
                     icon: const Icon(Icons.chevron_right),
-                    label: const Text('Prev'),
+                    label: const Text('Next'),
                   ),
                 ],
               ),
